@@ -1,4 +1,4 @@
-package com.mega.service.ftp;
+package com.mega.service.tcp;
 
 import java.io.BufferedReader;
 import java.io.IOException;
