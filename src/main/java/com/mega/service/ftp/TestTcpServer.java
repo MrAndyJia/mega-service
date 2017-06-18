@@ -1,4 +1,4 @@
-package com.mega.service;
+package com.mega.service.ftp;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -20,7 +20,6 @@ public class TestTcpServer {
                 SocketThread socketThread = new SocketThread(socket);
                 socketThread.start();
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
