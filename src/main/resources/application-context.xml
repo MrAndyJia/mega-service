@@ -44,8 +44,9 @@
 				javax.persistence.validation.mode=none
 			</value>
 		</property>
-		<property name="packagesToScan" value="com.mega.service.model" />
+		<property name="packagesToScan" value="com.mega.service.data" />
 	</bean>
+	
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />

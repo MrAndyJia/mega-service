@@ -9,12 +9,14 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import com.mega.service.common.Constant;
+
 public class TestTcpClient {
 
 	public static void main(String[] args) {
 		try {
 			// 创建Socket对象
-			Socket socket = new Socket("127.0.0.1", 8888);
+			Socket socket = new Socket("127.0.0.1", Constant.SOCKET_PORT);
 
 			// 根据输入输出流和服务端连接
 			OutputStream outputStream = socket.getOutputStream();// 获取一个输出流，向服务端发送信息

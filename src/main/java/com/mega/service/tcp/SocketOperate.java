@@ -8,7 +8,11 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
+
 import com.mega.service.common.Constant;
+import com.mega.service.data.IDataService;
 
 /**
  * 多线程处理socket接收的数据
@@ -38,7 +42,12 @@ public class SocketOperate extends Thread {
 				System.out.println("已接收到客户端连接");
 				System.out.println("服务端接收到客户端信息：" + info + ",当前客户端ip为：" + socket.getInetAddress().getHostAddress());
 			}
-
+			
+			WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext(); 
+			IDataService service = (IDataService) wac.getBean(IDataService.BEAN_ID);
+			service.saveData(info);
+			
+			
 			OutputStream outputStream = socket.getOutputStream();// 获取一个输出流，向客户端发送
 			PrintWriter printWriter = new PrintWriter(outputStream);// 将输出流包装成打印流
 			printWriter.print(Constant.SOCKET_RESULT_SUCCESS);
